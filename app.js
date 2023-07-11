@@ -9,20 +9,29 @@ let getComputerChoice = () => {
 
 
 let rules = (computerChoice = getComputerChoice() , plChoice = playerChoice) => {
-    let winner
+    let message
     if(
     (computerChoice === "rock" && plChoice === "scissors") || 
     (computerChoice === "paper" &&  plChoice === "rock")   ||
     (computerChoice === "scissors" && plChoice === "paper")){
-    winner = "computer"
-    return `You lost`
+        message = "You lost"
     } else if (computerChoice === plChoice){
-        winner = "Tie"
-        return "Tie"
+        message = "Tie"
     }else{
-        winner = "You"
-        return "you win"
-
+        message = "You win"
     }
+    return message
+}
+
+let determinateWinner = (computerChoice = getComputerChoice, plChoice = playerChoice) => {
+    let result = rules(computerChoice, plChoice)
+    let winner
+    if(result = "You lost"){
+        winner = "computer"
+    }else if (result = "Tie"){
+         winner = "tie"}
+    else{
+        winner = "you"}
+    return winner
 }
 
